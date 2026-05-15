@@ -1,0 +1,18 @@
+A KPI computation failed at runtime. Return corrected Python code only.
+
+KPI NAME: {kpi_name}
+FORMULA: {formula_description}
+
+ORIGINAL CODE:
+{original_code}
+
+ERROR TRACEBACK:
+{traceback}
+
+INSTRUCTIONS:
+- Fix the code so it runs without errors on a pandas DataFrame named `df`.
+- The code must return a scalar, list, or dict that represents the KPI value.
+- Do not import os, sys, subprocess, socket, requests, or urllib.
+- Do not use open(), eval(), exec(), or __import__().
+- Return ONLY the corrected Python code — no explanation, no markdown fences, no preamble.
+- Start your response with the first line of code.

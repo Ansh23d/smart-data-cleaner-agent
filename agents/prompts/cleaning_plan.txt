@@ -1,0 +1,57 @@
+Analyse the DataFrame profile below and return a cleaning plan.
+
+ALLOWED OPERATION TYPES (use only these exact strings):
+{allowed_types}
+
+DATA PROFILE:
+{profile_json}
+{user_feedback_section}
+INSTRUCTIONS:
+- Propose operations for EVERY issue found in the profile. Do not skip issues silently.
+- Order operations logically: rename/whitespace → type fixes → null handling → duplicates → category standardization.
+- For medium/low confidence operations, populate the "alternatives" array with 1-2 alternative code strings.
+- If a column is flagged POTENTIAL_ID, do not attempt to fill or drop its nulls — skip it.
+
+ALWAYS CHECK FOR (propose an operation if any of these apply):
+1. Duplicate rows — if duplicate_count > 0, always add a drop_duplicates operation.
+2. Whitespace — check every string/object column for leading/trailing whitespace.
+3. Mixed-case categorical values — if the same value appears in different cases (e.g. "North" and "north", "Yes" and "yes"), add a standardize_categories operation that normalises to title case using `.str.strip().str.title()`.
+4. Inconsistent category labels — e.g. "N/A", "n/a", "NA", "na" should be unified.
+5. Missing values — propose fill_missing or drop_missing for every column with null_rate > 0 (except POTENTIAL_ID columns).
+6. Type coercions — if a column looks numeric but is stored as object, propose fix_dtype.
+
+CASE NORMALISATION CODE PATTERN (use this for standardize_categories):
+df['col'] = df['col'].str.strip().str.title()
+
+EXAMPLE OUTPUT (2-operation plan):
+{{
+  "operations": [
+    {{
+      "id": "strip_whitespace_name",
+      "type": "fix_whitespace",
+      "description": "Strip leading/trailing whitespace from the name column",
+      "impact": "Fixes whitespace issues in ~12 rows of name",
+      "confidence": "high",
+      "reversible": false,
+      "code": "df['name'] = df['name'].str.strip()",
+      "column_names": ["name"],
+      "alternatives": []
+    }},
+    {{
+      "id": "fill_revenue_median",
+      "type": "fill_missing",
+      "description": "Fill missing revenue values with the column median",
+      "impact": "Fills 8 nulls in revenue",
+      "confidence": "medium",
+      "reversible": false,
+      "code": "df['revenue'] = df['revenue'].fillna(df['revenue'].median())",
+      "column_names": ["revenue"],
+      "alternatives": [
+        "df['revenue'] = df['revenue'].fillna(0)",
+        "df = df.dropna(subset=['revenue'])"
+      ]
+    }}
+  ]
+}}
+
+Return ONLY valid JSON matching the schema above. Do not include any text outside the JSON object.

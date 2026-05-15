@@ -1,0 +1,13 @@
+order_id,product_name,category,unit_price,quantity,customer_email,order_date,shipping_country,discount_pct
+ORD001,Widget A,Electronics,29.99,2,alice@example.com,2023-01-10,USA,0.1
+ORD002,Gadget B,electronics,N/A,1,bob@example.com,10/01/2023,United States,0.0
+ORD003,Widget A,Electronics,29.99,3,alice@example.com,2023-01-10,USA,0.1
+ORD004,Thingamajig,ELECTRONICS,,2,carol@example.com,2023-02-15,UK,
+ORD005,Doohickey,Apparel,15.00,1,dave@example.com,2023-02-20,Canada,0.05
+ORD006,Widget A,Electronics,29.99,2,alice@example.com,2023-01-10,USA,0.1
+ORD007,Gizmo C,Apparel,N/A,4,,2023-03-01,Germany,0.15
+ORD008,Thingamajig,apparel,12.50,1,eve@example.com,2023-03-10,,0.0
+ORD009,Doohickey,Apparel,15.00,,frank@example.com,invalid,France,0.0
+ORD010,Gizmo C,Apparel,12.50,2,grace@example.com,2023-03-20,Germany,0.1
+ORD011,Widget A,Electronics,29.99,1,henry@example.com,2023-04-01,USA,
+ORD012,Gadget B,Electronics,45.00,2,iris@example.com,2023-04-05,Canada,0.2

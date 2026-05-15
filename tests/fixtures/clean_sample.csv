@@ -1,0 +1,11 @@
+product_id,product_name,category,price,stock_qty,is_active,created_date
+1,Widget Alpha,Electronics,29.99,150,True,2023-01-01
+2,Gadget Beta,Electronics,45.00,80,True,2023-01-05
+3,Thingamajig,Apparel,12.50,200,True,2023-01-10
+4,Doohickey,Apparel,15.00,120,False,2023-01-15
+5,Gizmo Gamma,Electronics,99.99,45,True,2023-01-20
+6,Widget Delta,Apparel,22.00,300,True,2023-01-25
+7,Gadget Epsilon,Electronics,55.00,60,False,2023-02-01
+8,Thingamajig Pro,Apparel,18.50,175,True,2023-02-05
+9,Doohickey Plus,Apparel,20.00,90,True,2023-02-10
+10,Gizmo Delta,Electronics,75.00,35,True,2023-02-15

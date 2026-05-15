@@ -1,0 +1,51 @@
+Propose EXACTLY 4 KPIs for the dataset described below. Quality over quantity — only include a KPI if it provides genuine business insight.
+
+DOMAIN CONTEXT:
+{domain_context}
+
+DATA PROFILE:
+{profile_json}
+
+INSTRUCTIONS:
+- Base KPIs strictly on columns that exist in the profile — do not invent columns.
+- Every KPI code must return a single scalar number (int or float). No Series, no DataFrames.
+- Assign the correct unit to every KPI: "$" for money, "%" for rates, "days" for durations, "" for scores/counts.
+- Prioritise KPIs that directly measure business health — revenue, cost, rate, efficiency.
+- Avoid generic metrics like row counts, column counts, or trivial sums with no business meaning.
+- At least 2 of the 4 KPIs must be "high" priority.
+
+GOOD EXAMPLES (all return a single number with the correct unit):
+{{
+  "name": "Average Order Value",
+  "category": "Revenue",
+  "formula_description": "Mean of all transaction amounts",
+  "code": "round(df['amount'].mean(), 2)",
+  "unit": "$",
+  "business_value": "Tracks whether customers are spending more or less per transaction.",
+  "priority": "high",
+  "chart_config": {{"chart_type": "histogram", "x_axis": "amount", "y_axis": null, "title": "Order Value Distribution"}}
+}}
+
+{{
+  "name": "Customer Churn Rate",
+  "category": "Retention",
+  "formula_description": "Percentage of customers marked as churned",
+  "code": "round(df[df['status'] == 'churned'].shape[0] / len(df) * 100, 1)",
+  "unit": "%",
+  "business_value": "Directly measures customer loss — the most critical retention metric.",
+  "priority": "high",
+  "chart_config": {{"chart_type": "pie", "x_axis": "status", "y_axis": null, "title": "Customer Status Breakdown"}}
+}}
+
+{{
+  "name": "Average Employee Tenure",
+  "category": "HR",
+  "formula_description": "Mean days between hire date and today",
+  "code": "round((pd.Timestamp.now() - pd.to_datetime(df['hire_date'])).dt.days.mean(), 0)",
+  "unit": "days",
+  "business_value": "Indicates workforce stability and retention effectiveness.",
+  "priority": "medium",
+  "chart_config": {{"chart_type": "histogram", "x_axis": "hire_date", "y_axis": null, "title": "Tenure Distribution"}}
+}}
+
+Return ONLY valid JSON with the "kpis" array. Do not include any text outside the JSON object.

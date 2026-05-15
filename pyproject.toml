@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "ai-data-agent"
+version = "0.1.0"
+description = "AI-powered data cleaning and KPI generation agent"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "--cov=pipeline --cov=models --cov-report=term-missing"
+
+[tool.coverage.run]
+source = ["pipeline", "models", "agents", "services", "utils"]
+omit = ["tests/*", "app/*"]

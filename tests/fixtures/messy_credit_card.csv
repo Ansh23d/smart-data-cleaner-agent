@@ -1,0 +1,15 @@
+transaction_id,customer_id,amount,transaction_date,merchant,status,card_type,credit_limit,notes,always_approved
+TXN001,C001,150.00,2023-01-15,Amazon,Approved,Visa,5000,,Approved
+TXN002,C002,200.50,15/01/2023,Walmart,Approved,Mastercard,3000,,Approved
+TXN003,C003,abc,2023-01-20,Target,Pending,Visa,10000,suspicious,Approved
+TXN001,C001,150.00,2023-01-15,Amazon,Approved,Visa,5000,,Approved
+TXN004,C004,75.25,,Shell,Approved,Amex,,,Approved
+TXN005,C005,1500.00,2023-02-01,Apple,Declined,Visa,2000,,Approved
+TXN006,C001, 200.00 ,2023-02-15, Amazon ,Shopping,Visa,5000,,Approved
+TXN007,C006,50.00,2023-03-01,,Other,Mastercard,8000,,Approved
+TXN008,C007,99.99,not-a-date,Netflix,Approved,Visa,4000,,Approved
+TXN009,,,,,,,,,Approved
+TXN010,C008,25000.00,2023-04-01,Casino,Approved,Amex,1000,,Approved
+TXN011,C009,12.50,2023-04-05,Starbucks,Approved,Visa,2500,,Approved
+TXN012,C010,340.00,2023-04-10,BestBuy,Approved,Mastercard,7000,,Approved
+TXN013,C011,89.99,2023-04-15,Spotify,Approved,Visa,3000,,Approved

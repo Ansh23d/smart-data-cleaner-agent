@@ -1,0 +1,11 @@
+patient_id,age,gender,admission_date,discharge_date,diagnosis,ward,los_days,readmitted,notes
+P001,45,M,2023-01-05,2023-01-10,Hypertension,Cardiology,5,No,
+P002,67,F,05/01/2023,12/01/2023,Diabetes,Endocrinology,7,Yes,follow-up required
+P003,34,M,2023-02-01,2023-02-03,Fracture,Orthopedics,2,No,
+P004,N/A,F,2023-02-15,,Asthma,Pulmonology,,No,
+P005,55,M,2023-03-01,2023-03-08,Hypertension,Cardiology,7,No,
+P001,45,M,2023-01-05,2023-01-10,Hypertension,Cardiology,5,No,
+P006,72,F,not-a-date,2023-03-20,Heart Failure,Cardiology,9,Yes,critical
+P007,28,M,2023-04-01,2023-04-02,Appendicitis,Surgery,1,No,
+P008,61,F,2023-04-10,2023-04-18,COPD,Pulmonology,8,Yes,
+P009,,,,,,,,,
