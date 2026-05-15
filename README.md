@@ -12,10 +12,8 @@ Upload a CSV, Excel, JSON, or Parquet file and the app walks you through a six-s
 2. **Profile** — the app scans every column for null rates, data types, quality issues, and flags anything suspicious
 3. **Cleaning plan** — the AI proposes a set of cleaning operations (rename columns, fix types, fill nulls, remove duplicates, etc.). You tick the ones you want and skip the rest
 4. **Results** — the selected operations run and you see a before/after comparison showing exactly what changed
-5. **KPIs** — the app detects what kind of data you have and generates four business KPIs with the right units (dollar signs for revenue, percentages for rates, etc.)
+5. **KPIs** — the app detects what kind of data you have and generates business KPIs
 6. **Dashboard** — a clean visual summary with metric scorecards and auto-generated charts, plus the option to download your cleaned data
-
-The whole thing typically costs between $0.05 and $0.20 in Anthropic API credits per session.
 
 ---
 
@@ -41,8 +39,6 @@ Then run the app:
 streamlit run app.py
 ```
 
-It opens at `http://localhost:8501`.
-
 ---
 
 ## Supported file formats
@@ -58,7 +54,7 @@ The app makes LLM calls in exactly two places — everything else is determinist
 - **Cleaning plan generation** — one call to Claude Sonnet, which reads a summary of your data profile and proposes cleaning steps as structured JSON
 - **KPI generation** — one call to Claude Sonnet, which reads the column names, types, and domain context and returns four KPIs with pandas code
 
-If a generated code snippet fails to execute, Claude Haiku automatically attempts a fix (up to two retries). All other steps — profiling, execution, validation, chart generation — run locally with no LLM involvement.
+If a generated code snippet fails to execute, Claude Haiku automatically attempts a fix (up to two retries). All other steps: profiling, execution, validation, chart generation — run locally with no LLM involvement.
 
 ---
 
